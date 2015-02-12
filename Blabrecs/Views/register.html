@@ -1,0 +1,19 @@
+﻿<form id="register-form" ng-submit="register()">
+    <div class="row" ng-repeat="error in errors">
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" ng-model="username" placeholder="username" />
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" ng-model="password" placeholder="password" />
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" ng-model="confirmPassword" placeholder="password" />
+    </div>
+    <div class="form-group">
+        <input type="Submit" id="register-form-submit-button" class="btn btn-success btn-block" value="Register">
+    </div>
+</form>

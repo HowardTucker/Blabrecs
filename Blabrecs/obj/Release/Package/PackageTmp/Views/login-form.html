@@ -1,0 +1,56 @@
+﻿<form id="login-form" ng-submit="login()">
+    <div class="row" ng-repeat="error in errors">
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+    </div>
+    <div class="intro">
+        <h3>Blabrecs is a Scrabble clone written in C# using ASP.NET Web API, SignalR, and AngularJS.</h3>
+        <p>To demo the game, try opening the site in multiple browsers. You can register an account or use one of the following accounts:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Password
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        player1
+                    </td>
+                    <td>
+                        password
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        player2
+                    </td>
+                    <td>
+                        password
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" ng-model="username" placeholder="username" />
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" ng-model="password" placeholder="password" />
+    </div>
+    <div class="form-group checkbox">
+        <label class="pull-right">
+            <input type="checkbox" id="login-form-remember-me-checkbox" ng-model="persist" />
+            Remember Me
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="Submit" id="login-form-submit-button" class="btn btn-success btn-block" value="Submit">
+    </div>
+</form>

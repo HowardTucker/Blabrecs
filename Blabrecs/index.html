@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blabrecs</title>
+    <link href="Content/site.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body ng-app="BlabrecsApp" ng-cloak>
+    <div class="container">
+        <div class="header" ng-controller="HeaderCtrl">
+            <ul class="nav nav-pills pull-right">
+                <li ng-hide="user.isAuthenticated"><a ui-sref="login">Login</a></li>
+                <li ng-hide="user.isAuthenticated"><a ui-sref="register">Register</a></li>
+                <li ng-show="user.isAuthenticated"><a ui-sref="logout">Logout</a></li>
+            </ul>
+            <h3 class="text-muted">Blabrecs</h3>
+        </div>
+    </div>
+
+    <!-- Add your site or application content here -->
+    <div class="container" ui-view></div>
+    <script src="Scripts/jquery-2.1.3.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.js"></script>
+    <script src="signalr/hubs"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/angular-cookies.js"></script>
+    <script src="Scripts/angular-sanitize.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="Scripts/app/app.js"></script>
+    <script src="Scripts/app/services/user.js"></script>
+    <script src="Scripts/app/controllers/main.js"></script>
+    <script src="Scripts/app/controllers/header.js"></script>
+    <script src="Scripts/app/controllers/login.js"></script>
+    <script src="Scripts/app/controllers/register.js"></script>
+    <script src="Scripts/app/controllers/logout.js"></script>
+    <script src="Scripts/app/controllers/games.js"></script>
+</body>
+</html>

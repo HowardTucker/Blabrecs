@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blabrecs", "Blabrecs\Blabrecs.csproj", "{20351DF6-F8F0-4D20-8F0C-82762D0DF720}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blabrecs.Web", "Blabrecs.Web\Blabrecs.Web.csproj", "{6D360AC2-BC97-4538-80A6-5FAF58223C93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20351DF6-F8F0-4D20-8F0C-82762D0DF720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20351DF6-F8F0-4D20-8F0C-82762D0DF720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20351DF6-F8F0-4D20-8F0C-82762D0DF720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20351DF6-F8F0-4D20-8F0C-82762D0DF720}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D360AC2-BC97-4538-80A6-5FAF58223C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D360AC2-BC97-4538-80A6-5FAF58223C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D360AC2-BC97-4538-80A6-5FAF58223C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D360AC2-BC97-4538-80A6-5FAF58223C93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

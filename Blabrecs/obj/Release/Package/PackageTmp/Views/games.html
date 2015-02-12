@@ -1,0 +1,112 @@
+﻿<div ng-hide="inGame">
+    <div class="row" ng-show="closedGame">
+        <div class="alert alert-danger">
+            Your game has been closed because the owner left or a player left mid game.
+        </div>
+    </div>
+    <div class="row" ng-show="alreadyInGame">
+        <div class="alert alert-danger">
+            This player account is already in that game. If you are using one of the supplies player accounts then try registering your own account.
+        </div>
+    </div>
+    <h2>Join an open game or create a new one</h2>
+    <form>
+        Lobby name: <input type="text" ng-model="name" />
+        <button ng-click="createGame()" class="btn btn-primary btn-sm">Create</button>
+    </form>
+
+    <h2>Open games</h2>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Players</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="game in games">
+                <td>{{game.Name}}</td>
+                <td>{{game.CurrentlyConnectedPlayers}}/4</td>
+                <td><button class="btn btn-primary btn-sm" ng-click="joinGame(game)">Join</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div ng-show="inGame">
+    <div>
+        <h2>{{gameState.LobbyName}}</h2>
+        <button class="btn btn-sm btn-danger pull-right" ng-click="abandonGame()">Abandon Game</button>
+    </div>
+    <div class="row" ng-repeat="gameMessage in gameState.gameMessages">
+        <div class="alert alert-danger">
+            {{gameMessage}}
+        </div>
+    </div>
+    <div id="board">
+        <div class="row" ng-repeat="row in gameState.board">
+            <div id="row{{col.row}}col{{col.col}}" data-row="{{col.row}}" data-col="{{col.col}}" class="board-space row{{col.row}}col{{col.col}} isTurn{{gameState.isTurn}}" ng-repeat="col in row">
+                <div ng-if="col.class" class="letter {{col.class}}" draggable="false"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="letter-rack" ng-repeat="letter in gameState.rack">
+        <div id='{{letter.id}}{{letter.letterType}}' ng-show="letter.letterType" data-letter="{{letter.id}}" class="letter player-letter letter-{{letter.letterType}} draggable" draggable="true"></div>
+    </div>
+    <button ng-disabled="!gameState.isTurn" class="btn btn-primary start-button" ng-click="validateGameState()">End Turn</button>
+    <button ng-disabled="!gameState.isTurn" class="btn btn-danger pass-button" data-toggle="modal" data-target="#passModal">Pass</button>
+    <div class="clearfix"></div>
+    <div class="row chat-container">
+        <div class="col-lg-2">
+            <div class="scoreboard">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th class="score">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="player in players">
+                            <td class="isTurn{{player.isTurn}}">{{player.name}} </td>
+                            <td class="score isTurn{{player.isTurn}}">{{player.score}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>{{players.length}} / 4 players</p>
+            <button ng-show="gameOwner && !gameState.gameStarted" ng-disabled="!canStart" ng-click="startGame()" class="btn btn-primary start-game-button">Start Game</button>
+        </div>
+        <div class="col-lg-10">
+            <div class="scrollable">
+                <div ng-repeat="message in messages">{{message.user}}: {{message.message}}</div>
+            </div>
+            <form>
+                <input type="text" class="input-chat" ng-model="message" />
+                <button ng-click="sendMessage()" class="btn btn-primary btn-sm">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal fade" id="passModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Pass turn</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Select tiles you would like to discard (if any)</p>
+
+                    <div ng-repeat="letter in gameState.rack" ng-show="letter.letterType">
+                        <label><input type="checkbox" class="pass-checkbox" data-letter="{{letter.id}}" /> <div id='{{letter.id}}{{letter.letterType}}' ng-show="letter.letterType" data-letter="{{letter.id}}" class="letter player-letter letter-{{letter.letterType}}"></div></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="passTurn()">Pass</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

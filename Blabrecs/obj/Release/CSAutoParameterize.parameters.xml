@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="BlabrecsContext-Web.config Connection String" description="BlabrecsContext Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:gokdy0chjm.database.windows.net,1433;Database=Blabrecs;User ID=howard_tucker@gokdy0chjm;Password=lovepotion#9;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Walrus\\Documents\\Visual\ Studio\ 2013\\Projects\\Blabrecs\\Blabrecs\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BlabrecsContext']/@connectionString" />
+  </parameter>
+</parameters>
